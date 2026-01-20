@@ -1,8 +1,722 @@
-*{
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-body{
-    background-color: aqua;
+body {
+    overflow-x: auto;
+}
+.font-inter {
+    width: 1600px; 
+    margin: 0 auto; 
+    background-color: #1A0B2E;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto; 
+}
+
+.navbar {
+    width: 100%;
+    height: 92px; 
+    background: #1A0B2E;
+    border-bottom: 1px solid rgba(65, 37, 103, 1);
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+
+.nav-container {
+    width: 100%;
+    max-width: 1600px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%; 
+}
+
+/* Logo Style */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.logo span {
+    color: #E91E63; 
+}
+
+/* Nav Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #B0A9B8;
+    font-size: 16px;
+    transition: 0.3s;
+
+}
+
+.nav-links a:hover {
+    color: #FFFFFF;
+}
+
+/* Subscribe Button Gradient */
+.sub-btn {
+    background: linear-gradient(90deg, #FF3D00 0%, #E91E63 100%); 
+    color: #FFFFFF;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.sub-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile Menu Logic (No JS) */
+.menu-checkbox, .hamburger {
+    display: none;
+}
+
+.mobile-btn {
+    display: none;
+}
+
+
+@media (max-width: 1400px) {
+    .nav-container {
+        padding: 0 50px; 
+    }
+}
+
+@media (max-width: 992px) {
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 2px;
+        background: white;
+    }
+
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 92px;
+        left: 0;
+        width: 100%;
+        background: #1A0B2E;
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .nav-button {
+        display: none; /* মোবাইলে আলাদা বাটন লুকানো */
+    }
+
+    .mobile-btn {
+        display: block;
+    }
+
+    /* Checkbox checked হলে মেনু দেখাবে */
+    .menu-checkbox:checked ~ .nav-links {
+        display: flex;
+    }
+}
+/* hero section */
+
+
+.hero-section {
+    width: 100%;
+    min-height: 760px; /* ফিগমা হাইট */
+    background-color: #1A0B2E; /* ব্যাকগ্রাউন্ড কালার */
+    
+    /* ব্যাকগ্রাউন্ড ওয়েভ ইমেজ এখানে দিবেন */
+    background-image: url('./assets/hero-bg.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.hero-container {
+    max-width: 1600px; /* ফিগমা কন্টেইনার উইডথ */
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Podcast Circle with Gradient */
+.podcast-circle {
+    width: 320px; 
+    height: 320px;
+    background: linear-gradient(135deg, rgba(247, 233, 63, 1), rgba(251, 9, 180, 1), rgba(145, 0, 248, 1)); /* গ্রেডিয়েন্ট কালার */
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 80px rgba(233, 30, 99, 0.5); /* গ্লো ইফেক্ট */
+    margin-bottom: 50px;
+}
+
+/* Microphone Image */
+.mic-image {
+    width: 140px; /* আপনার ইমেজের সাইজ অনুযায়ী অ্যাডজাস্ট করুন */
+    z-index: 5;
+}
+
+/* New Badge */
+.badge-new {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: #00FFA3;
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Content Styling */
+.hero-content h1 {
+    font-size: 64px; /* ফিগমা অনুযায়ী বড় টেক্সট */
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #B0A9B8;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-spotify {
+    background: var(--Linear, linear-gradient(47.64deg, rgba(247, 233, 63, 1),rgba(251, 9, 180, 1),rgba(145, 0, 248, 1)));
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-subscribe {
+    background: transparent;
+    border: 1px solid #412567;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-small {
+    width: 20px;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 42px; }
+    .podcast-circle { width: 250px; height: 250px; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+}
+
+/* About Section Styles */
+.about-section {
+    background-color: #1A0B2E; /* মেইন ব্যাকগ্রাউন্ড */
+    padding: 120px 0; /* উপর নিচে পর্যাপ্ত গ্যাপ */
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.main-container {
+    max-width: 1600px; /* ফিগমা অনুযায়ী উইডথ */
+    margin: 0 auto;
+    padding: 0 200px; /* ল্যাপটপ স্ক্রিনের জন্য সাইড প্যাডিং */
+}
+
+/* Title & Text Styling */
+.about-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.about-content {
+    max-width: 1200px; /* টেক্সট যেন খুব বেশি ছড়িয়ে না যায় */
+    margin: 0 auto 80px;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #B0A9B8; /* গ্রে-ইশ টেক্সট কালার */
+    margin-bottom: 20px;
+}
+
+.highlight-text {
+    color: #FFFFFF !important;
+    font-weight: 500;
+}
+
+/* Statistics Grid Styling */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* ডেক্সটপে ৪ কলাম */
+    gap: 40px;
+    padding-top: 50px;
+}
+
+.stat-item {
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px); /* কার্ড অ্যানিমেশন (চ্যালেঞ্জ পার্ট) */
+}
+
+/* Stat Numbers */
+.stat-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: #00FF88; /* ফিগমা অনুযায়ী সবুজ রঙ */
+    margin-bottom: 10px;
+}
+
+/* Stat Labels */
+.stat-label {
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFFFFF;
+    opacity: 0.8;
+    text-transform: uppercase; /* সব বড় হাতের */
+    letter-spacing: 1px;
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* আপনার ল্যাপটপ স্ক্রিন (১৩৬৬px) বা তার নিচের জন্য */
+@media (max-width: 1400px) {
+    .main-container {
+        padding: 0 100px;
+    }
+}
+
+/* মোবাইল রেসপন্সিভ (৫৭৬px এর নিচে) */
+@media (max-width: 576px) {
+    .main-container {
+        padding: 0 20px;
+    }
+
+    .about-title {
+        font-size: 32px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* ২x২ গ্রিড */
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 36px;
+    }
+}
+
+.why-choose-section {
+    background-color: #1A0B2E; /* ব্যাকগ্রাউন্ড কালার */
+    padding: 120px 0;
+    color: white;
+}
+
+.main-container {
+    max-width: 1600px; /* ফিগমা উইডথ */
+    margin: 0 auto;
+    padding: 0 200px; /* লার্জ স্ক্রিন প্যাডিং */
+}
+
+.section-main-title {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+/* গ্রিড লেআউট */
+.why-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* কার্ডের মাঝখানের গ্যাপ */
+}
+
+/* কমন কার্ড স্টাইল */
+.why-card {
+    background: rgba(53, 17, 101, 0.4); /* কার্ড ব্যাকগ্রাউন্ড */
+    border-radius: 40px; /* ফিগমা বর্ডার রেডিয়াস */
+    padding: 40px; /* ইনার প্যাডিং */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    background: rgba(53, 17, 101, 0.6);
+}
+
+/* আইকন বক্স স্টাইল */
+.icon-box {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 24px;
+}
+
+.card-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* কার্ডের বিভিন্ন সাইজ সেট করা */
+.large-card { width: 380px; height: 480px; } /* Card 1 */
+.card-column { display: flex; flex-direction: column; gap: 30px; width: 790px; } /* Card 2 & 3 group */
+.small-card { height: 225px; } /* Card 2 & 3 individual */
+.card-row { display: flex; gap: 30px; width: 100%; } /* Bottom row */
+.wide-card { flex: 2; } /* Card 4 */
+.normal-card { flex: 1; } /* Card 5 */
+
+.why-card h3 {
+    font-size: 24px; 
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.why-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7); 
+}
+
+
+
+.background{
+    background-color: #1a0b2e;
+}
+
+.episodes-container {
+    
+    padding: 120px 0;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    gap: 30px; 
+    width: 1200px; 
+    margin: 0 auto; 
+}
+
+
+.episode-card {
+    width: 380px; 
+    background: #25153b; 
+    border-radius: 24px; 
+    overflow: hidden; 
+    text-align: left;
+}
+
+
+.video-container {
+    position: relative; 
+    width: 100%;
+    height: 214px; 
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    
+    
+    background: linear-gradient(47.64deg, #F7E93F 0%, #FB09B4 50%, #9100F8 100%);
+    
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); 
+}
+
+
+.play-icon {
+    width: 0;
+    height: 0;
+     border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent; 
+    border-left: 20px solid #ffffff; 
+    margin-left: 4px; 
+}
+
+
+.video-container:hover .play-button-overlay {
+    transform: translate(-50%, -50%) scale(1.1);
+    transition: 0.3s ease;
+}
+
+.episode-info {
+    padding: 24px; 
+}
+
+.episode-info h3 {
+    font-size: 24px; 
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+}
+
+.episode-info p {
+    font-size: 16px; 
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6); 
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+
+.duration {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #00FF88; 
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.icon-img {
+    width: 20px; 
+    height: 20px;
+}
+
+/* meet the host */
+
+
+.host-section {
+    width: 1200px; 
+    margin: 0 auto; 
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+.host-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 40px; 
+    
+}
+
+.host-card {
+    display: flex;
+    align-items: center;
+    background: #25153b; 
+    border-radius: 24px;
+    padding: 60px; 
+    gap: 40px; 
+    text-align: left;
+}
+
+
+.host-image-container {
+    flex-shrink: 0;
+}
+
+.host-img {
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%; 
+    object-fit: cover;
+}
+
+
+.host-name {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    line-height: 39px;
+    
+}
+
+.host-bio {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(201, 198, 198); 
+    line-height: 24px;
+    margin-bottom: 24px;
+    
+}
+
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border: 1px solid rgba(83, 60, 114, 1);
+    border-radius: 50%;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+
+.social-icon img {
+    width: 20px;  
+    height: 20px;
+    opacity: 0.8;
+}
+
+
+.social-icon:hover {
+    background-color: rgba(83, 60, 114, 0.3);
+    border-color: #FB09B4; 
+}
+
+.social-icon:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.main-footer {
+    width: 100%;
+     height: 412px;  
+    background-color: #1a0b2e; 
+    background-image: url('./assets/footer-bg.png'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 0px;
+}
+
+.footer-content {
+    text-align: center;
+    z-index: 2;
+}
+
+.footer-logo {
+    font-family: 'Inter', sans-serif; 
+    font-size: 64px;       
+    font-weight: 800;     
+    color:rgba(255, 255, 255, 1); 
+    text-transform: none;  
+    margin-bottom: 34px;
+
+}
+
+.footer-logo span {
+    color: #ff00ff;  
+    
+    
+}
+
+.platform-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.platform-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: 0.3s; 
+    line-height: 19px;
+    
+}
+
+.platform-links a:hover {
+    opacity: 1;
+    color: #00FF88;
+}
+
+.platform-links img {
+    width: 24px; 
+    height: 24px;
+}
+
+
+.copyright {
+     font-size: 16px;
+    color: rgba(250, 250, 250, 1);
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    
+
 }
