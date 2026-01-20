@@ -40,7 +40,7 @@ body {
     padding: 0 5%; 
 }
 
-/* Logo Style */
+
 .logo {
     font-size: 32px;
     font-weight: bold;
@@ -54,7 +54,7 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* Nav Links */
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -73,7 +73,7 @@ body {
     color: #FFFFFF;
 }
 
-/* Subscribe Button Gradient */
+
 .sub-btn {
     background: linear-gradient( 16.02deg,rgba(247, 233, 63, 1),rgba(251, 9, 180, 1),rgba(145, 0, 248, 1));
     color: #FFFFFF;
@@ -107,16 +107,11 @@ body {
 }
 
 
-/* @media (max-width: 1600px) {
-    .nav-container {
-        padding: 0 50px; 
-    }
-} */
+
 
 @media (max-width: 576px) {
     .hamburger {
-        /* display: flex;
-        flex-direction: column; */
+
         display: block;
         gap: 5px;
         cursor: pointer;
@@ -153,7 +148,7 @@ body {
 }.logo {
         font-size: 24px; 
     }
-/* hero section */
+
 @keyframes waveMove {
     0% {
         background-position: 0% center;
@@ -200,28 +195,28 @@ body {
     text-align: center;
 }
 
-/* Podcast Circle with Gradient */
+
 .podcast-circle {
     width: 320px; 
     height: 320px;
-    background: linear-gradient(135deg, rgba(247, 233, 63, 1), rgba(251, 9, 180, 1), rgba(145, 0, 248, 1)); /* গ্রেডিয়েন্ট কালার */
+    background: linear-gradient(135deg, rgba(247, 233, 63, 1), rgba(251, 9, 180, 1), rgba(145, 0, 248, 1)); 
     border-radius: 50%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 80px rgba(233, 30, 99, 0.5); /* গ্লো ইফেক্ট */
+    box-shadow: 0px 0px 80px rgba(233, 30, 99, 0.5); 
     margin-bottom: 50px;
 }
 
-/* Microphone Image */
+
 .mic-image {
     width: 140px; 
     z-index: 1;
     position: relative;
 }
 
-/* New Badge */
+
 .badge-new {
     position: absolute;
     top: 30px;
@@ -236,9 +231,9 @@ body {
     z-index: 10;
 }
 
-/* Content Styling */
+
 .hero-content h1 {
-    font-size: 64px; /* ফিগমা অনুযায়ী বড় টেক্সট */
+    font-size: 64px; 
     color: #FFFFFF;
     margin-bottom: 15px;
 }
@@ -250,7 +245,7 @@ body {
     margin-bottom: 40px;
 }
 
-/* Buttons */
+
 .hero-buttons {
     display: flex;
     gap: 20px;
@@ -286,19 +281,19 @@ body {
     width: 20px;
 }
 
-/* Responsive for Mobile */
+
 @media (max-width: 576px) {
     .hero-content h1 { font-size: 42px; }
     .podcast-circle { width: 250px; height: 250px; }
     .hero-buttons { flex-direction: column; align-items: center; }
 }
 
-/* About Section Styles */
+
 .about-section {
     background-color: #1A0B2E; 
     padding: 100px 0;
     color: #FFFFFF;
-    /* text-align: center; */
+    
     width: 100%;
     display: flex;
     justify-content: center;
@@ -316,7 +311,7 @@ body {
     text-align: center; 
 }
 
-/* Title & Text Styling */
+
 .about-title {
     font-size: 48px;
     font-weight: 700;
@@ -341,7 +336,7 @@ body {
     font-weight: 500;
 }
 
-/* Statistics Grid Styling */
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
@@ -363,7 +358,7 @@ body {
     transform: translateY(-10px); 
 }
 
-/* Stat Numbers */
+
 .stat-number {
     font-size: 48px;
     font-weight: 900;
@@ -371,7 +366,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* Stat Labels */
+
 .stat-label {
     font-size: 16px;
     font-weight: 400;
@@ -381,13 +376,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* --- Responsive Breakpoints --- */
 
-/* @media (max-width: 1400px) {
-    .main-container {
-        padding: 0 100px;
-    }
-} */
 
 
 @media (max-width: 576px) {
@@ -406,7 +395,7 @@ body {
 
     .stats-grid {
         grid-template-columns: repeat(2, 1fr); 
-        /* gap: 20px; */
+        
         gap: 30px 10px;
     }
 
@@ -419,7 +408,7 @@ body {
 }
 
 .why-choose-section {
-    /* background-color: #1A0B2E;  */
+   
     background: rgba(35, 14, 61, 1);
     padding: 120px 0;
     color: white;
@@ -496,26 +485,26 @@ body {
 }
 @media (max-width: 576px) {
     .main-container {
-        padding: 0 20px; /* মোবাইলে সাইড গ্যাপ কমানো হয়েছে */
+        padding: 0 20px; 
     }
 
     .section-main-title {
-        font-size: 32px; /* টাইটেল মোবাইলের জন্য ছোট করা হলো */
+        font-size: 32px; 
         margin-bottom: 40px;
     }
 
     .why-grid, .card-column, .card-row {
-        flex-direction: column; /* সব রো এবং কলামকে সিঙ্গেল কলামে আনা হলো */
+        flex-direction: column; 
         width: 100%;
         gap: 20px;
     }
 
-    /* মোবাইলে ফিক্সড হাইট এবং উইডথ মুছে ফেলা জরুরি */
+    
     .why-card, .large-card, .small-card, .wide-card, .normal-card {
         width: 100% !important;
-        height: auto !important; /* কন্টেন্ট অনুযায়ী হাইট বাড়বে */
+        height: auto !important;
         padding: 30px 20px;
-        border-radius: 24px; /* মোবাইলে বর্ডার রেডিয়াস কিছুটা কমানো ভালো */
+        border-radius: 24px; 
     }
 
     .icon-box {
