@@ -4,19 +4,22 @@
     padding: 0;
 }
 body {
-    overflow-x: auto;
+    overflow-x: hidden;
+    width: 100%;
+     background-color: #1A0B2E; 
 }
 .font-inter {
-    width: 1600px; 
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto; 
-    background-color: #1A0B2E;
+    background-color: #1A0B2E; 
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto; 
 }
 
 .navbar {
     width: 100%;
-    height: 92px; 
+    min-height: 92px; 
     background: #1A0B2E;
     border-bottom: 1px solid rgba(65, 37, 103, 1);
     display: flex;
@@ -39,13 +42,16 @@ body {
 
 /* Logo Style */
 .logo {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: bold;
     color: #FFFFFF;
 }
 
 .logo span {
-    color: #E91E63; 
+     background: linear-gradient( 16.02deg,rgba(247, 233, 63, 1),rgba(251, 9, 180, 1),rgba(145, 0, 248, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Nav Links */
@@ -57,7 +63,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #B0A9B8;
+    color: #dbd8df;
     font-size: 16px;
     transition: 0.3s;
 
@@ -69,7 +75,7 @@ body {
 
 /* Subscribe Button Gradient */
 .sub-btn {
-    background: linear-gradient(90deg, #FF3D00 0%, #E91E63 100%); 
+    background: linear-gradient( 16.02deg,rgba(247, 233, 63, 1),rgba(251, 9, 180, 1),rgba(145, 0, 248, 1));
     color: #FFFFFF;
     padding: 12px 28px;
     border-radius: 50px;
@@ -84,9 +90,16 @@ body {
     transform: scale(1.05);
 }
 
-/* Mobile Menu Logic (No JS) */
 .menu-checkbox, .hamburger {
     display: none;
+}
+.hamburger {
+    width: 30px;
+    height: 30px;
+    background-image: url('./assets/hamburger-menu.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .mobile-btn {
@@ -94,24 +107,22 @@ body {
 }
 
 
-@media (max-width: 1400px) {
+/* @media (max-width: 1600px) {
     .nav-container {
         padding: 0 50px; 
     }
-}
+} */
 
-@media (max-width: 992px) {
+@media (max-width: 576px) {
     .hamburger {
-        display: flex;
-        flex-direction: column;
+        /* display: flex;
+        flex-direction: column; */
+        display: block;
         gap: 5px;
         cursor: pointer;
     }
-
-    .hamburger span {
-        width: 25px;
-        height: 2px;
-        background: white;
+    .nav-container {
+        padding: 0 20px; 
     }
 
     .nav-links {
@@ -124,43 +135,63 @@ body {
         flex-direction: column;
         padding: 20px;
         text-align: center;
+        z-index: 999;
     }
 
     .nav-button {
-        display: none; /* মোবাইলে আলাদা বাটন লুকানো */
+        display: none; 
     }
 
     .mobile-btn {
         display: block;
     }
 
-    /* Checkbox checked হলে মেনু দেখাবে */
+    
     .menu-checkbox:checked ~ .nav-links {
         display: flex;
     }
-}
+}.logo {
+        font-size: 24px; 
+    }
 /* hero section */
-
+@keyframes waveMove {
+    0% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center; 
+    }
+    100% {
+        background-position: 0% center;
+    }
+}
 
 .hero-section {
     width: 100%;
-    min-height: 760px; /* ফিগমা হাইট */
-    background-color: #1A0B2E; /* ব্যাকগ্রাউন্ড কালার */
+    min-height: 760px; 
+    background-color: #1A0B2E; 
     
-    /* ব্যাকগ্রাউন্ড ওয়েভ ইমেজ এখানে দিবেন */
+    
     background-image: url('./assets/hero-bg.png'); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-size: 120% auto; 
+    animation: waveMove 10s ease-in-out infinite; 
     
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 80px 20px;
 }
-
+@media (max-width: 576px) {
+    .hero-section {
+        background-size: 150% auto; 
+        animation: waveMove 15s linear infinite; 
+    }
+}
 .hero-container {
-    max-width: 1600px; /* ফিগমা কন্টেইনার উইডথ */
+    max-width: 1600px;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -185,8 +216,9 @@ body {
 
 /* Microphone Image */
 .mic-image {
-    width: 140px; /* আপনার ইমেজের সাইজ অনুযায়ী অ্যাডজাস্ট করুন */
-    z-index: 5;
+    width: 140px; 
+    z-index: 1;
+    position: relative;
 }
 
 /* New Badge */
@@ -201,6 +233,7 @@ body {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
+    z-index: 10;
 }
 
 /* Content Styling */
@@ -254,7 +287,7 @@ body {
 }
 
 /* Responsive for Mobile */
-@media (max-width: 768px) {
+@media (max-width: 576px) {
     .hero-content h1 { font-size: 42px; }
     .podcast-circle { width: 250px; height: 250px; }
     .hero-buttons { flex-direction: column; align-items: center; }
@@ -262,16 +295,25 @@ body {
 
 /* About Section Styles */
 .about-section {
-    background-color: #1A0B2E; /* মেইন ব্যাকগ্রাউন্ড */
-    padding: 120px 0; /* উপর নিচে পর্যাপ্ত গ্যাপ */
+    background-color: #1A0B2E; 
+    padding: 100px 0;
     color: #FFFFFF;
-    text-align: center;
+    /* text-align: center; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .main-container {
-    max-width: 1600px; /* ফিগমা অনুযায়ী উইডথ */
+    width: 100%;
+    max-width: 1600px; 
     margin: 0 auto;
-    padding: 0 200px; /* ল্যাপটপ স্ক্রিনের জন্য সাইড প্যাডিং */
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
 }
 
 /* Title & Text Styling */
@@ -283,28 +325,33 @@ body {
 }
 
 .about-content {
-    max-width: 1200px; /* টেক্সট যেন খুব বেশি ছড়িয়ে না যায় */
+    max-width: 1200px; 
     margin: 0 auto 80px;
 }
 
 .about-content p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
-    color: #B0A9B8; /* গ্রে-ইশ টেক্সট কালার */
+    color: #B0A9B8; 
     margin-bottom: 20px;
 }
 
 .highlight-text {
-    color: #FFFFFF !important;
+    color: #FFFFFF;
     font-weight: 500;
 }
 
 /* Statistics Grid Styling */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* ডেক্সটপে ৪ কলাম */
-    gap: 40px;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
     padding-top: 50px;
+    width: 100%;
+    max-width: 1200px; 
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    padding-top: 40px;
 }
 
 .stat-item {
@@ -313,14 +360,14 @@ body {
 }
 
 .stat-item:hover {
-    transform: translateY(-10px); /* কার্ড অ্যানিমেশন (চ্যালেঞ্জ পার্ট) */
+    transform: translateY(-10px); 
 }
 
 /* Stat Numbers */
 .stat-number {
     font-size: 48px;
     font-weight: 900;
-    color: #00FF88; /* ফিগমা অনুযায়ী সবুজ রঙ */
+    color: #00FF88; 
     margin-bottom: 10px;
 }
 
@@ -330,49 +377,60 @@ body {
     font-weight: 400;
     color: #FFFFFF;
     opacity: 0.8;
-    text-transform: uppercase; /* সব বড় হাতের */
+    text-transform: uppercase; 
     letter-spacing: 1px;
 }
 
 /* --- Responsive Breakpoints --- */
 
-/* আপনার ল্যাপটপ স্ক্রিন (১৩৬৬px) বা তার নিচের জন্য */
-@media (max-width: 1400px) {
+/* @media (max-width: 1400px) {
     .main-container {
         padding: 0 100px;
     }
-}
+} */
 
-/* মোবাইল রেসপন্সিভ (৫৭৬px এর নিচে) */
+
 @media (max-width: 576px) {
     .main-container {
         padding: 0 20px;
     }
 
     .about-title {
-        font-size: 32px;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    .about-content p {
+        font-size: 14px; 
+        line-height: 1.5;
     }
 
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr); /* ২x২ গ্রিড */
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr); 
+        /* gap: 20px; */
+        gap: 30px 10px;
     }
 
     .stat-number {
-        font-size: 36px;
+        font-size: 32px;
+    }
+    .stat-label {
+        font-size: 12px; 
     }
 }
 
 .why-choose-section {
-    background-color: #1A0B2E; /* ব্যাকগ্রাউন্ড কালার */
+    /* background-color: #1A0B2E;  */
+    background: rgba(35, 14, 61, 1);
     padding: 120px 0;
     color: white;
+   
+
 }
 
 .main-container {
-    max-width: 1600px; /* ফিগমা উইডথ */
+    max-width: 1600px; 
     margin: 0 auto;
-    padding: 0 200px; /* লার্জ স্ক্রিন প্যাডিং */
+    padding: 0 5%; 
 }
 
 .section-main-title {
@@ -382,18 +440,17 @@ body {
     font-weight: 700;
 }
 
-/* গ্রিড লেআউট */
+
 .why-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px; /* কার্ডের মাঝখানের গ্যাপ */
+    gap: 30px; 
+    justify-content: center;
 }
-
-/* কমন কার্ড স্টাইল */
 .why-card {
-    background: rgba(53, 17, 101, 0.4); /* কার্ড ব্যাকগ্রাউন্ড */
-    border-radius: 40px; /* ফিগমা বর্ডার রেডিয়াস */
-    padding: 40px; /* ইনার প্যাডিং */
+    background: rgba(53, 17, 101, 0.4); 
+    border-radius: 40px; 
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -405,7 +462,7 @@ body {
     background: rgba(53, 17, 101, 0.6);
 }
 
-/* আইকন বক্স স্টাইল */
+
 .icon-box {
     width: 50px;
     height: 50px;
@@ -418,13 +475,13 @@ body {
     object-fit: contain;
 }
 
-/* কার্ডের বিভিন্ন সাইজ সেট করা */
-.large-card { width: 380px; height: 480px; } /* Card 1 */
-.card-column { display: flex; flex-direction: column; gap: 30px; width: 790px; } /* Card 2 & 3 group */
-.small-card { height: 225px; } /* Card 2 & 3 individual */
-.card-row { display: flex; gap: 30px; width: 100%; } /* Bottom row */
-.wide-card { flex: 2; } /* Card 4 */
-.normal-card { flex: 1; } /* Card 5 */
+
+.large-card { max-width: 380px; flex: 1; min-width: 350px; height: 480px; } 
+.card-column { display: flex; flex-direction: column; gap: 30px; flex: 2; max-width: 790px; } 
+.small-card { height: 225px; } 
+.card-row { display: flex; gap: 30px; width: 100%; } 
+.wide-card { flex: 2; } 
+.normal-card { flex: 1; } 
 
 .why-card h3 {
     font-size: 24px; 
@@ -437,7 +494,45 @@ body {
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.7); 
 }
+@media (max-width: 576px) {
+    .main-container {
+        padding: 0 20px; /* মোবাইলে সাইড গ্যাপ কমানো হয়েছে */
+    }
 
+    .section-main-title {
+        font-size: 32px; /* টাইটেল মোবাইলের জন্য ছোট করা হলো */
+        margin-bottom: 40px;
+    }
+
+    .why-grid, .card-column, .card-row {
+        flex-direction: column; /* সব রো এবং কলামকে সিঙ্গেল কলামে আনা হলো */
+        width: 100%;
+        gap: 20px;
+    }
+
+    /* মোবাইলে ফিক্সড হাইট এবং উইডথ মুছে ফেলা জরুরি */
+    .why-card, .large-card, .small-card, .wide-card, .normal-card {
+        width: 100% !important;
+        height: auto !important; /* কন্টেন্ট অনুযায়ী হাইট বাড়বে */
+        padding: 30px 20px;
+        border-radius: 24px; /* মোবাইলে বর্ডার রেডিয়াস কিছুটা কমানো ভালো */
+    }
+
+    .icon-box {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 16px;
+    }
+
+    .why-card h3 {
+        font-size: 20px;
+    }
+
+    .why-card p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
 
 
 .background{
@@ -451,13 +546,16 @@ body {
     flex-direction: row; 
     justify-content: center; 
     gap: 30px; 
-    width: 1200px; 
+    width: 100%;
+    max-width: 1600px;
+     /*width:1200px  */
     margin: 0 auto; 
 }
 
 
-.episode-card {
-    width: 380px; 
+.episode-card { 
+    flex: 1;
+    max-width: 380px; 
     background: #25153b; 
     border-radius: 24px; 
     overflow: hidden; 
@@ -473,7 +571,7 @@ body {
 
 .video-container iframe {
     width: 100%;
-    height: 100%;
+    height: auto;
     border: none;
     display: block;
 }
@@ -548,11 +646,44 @@ body {
     height: 20px;
 }
 
+@media (max-width: 576px) {
+    .episodes-container {
+        flex-direction: column; 
+        align-items: center;    
+        padding: 60px 20px;     
+        width: 100%;
+        gap: 40px;              
+    }
+
+    .episode-card {
+        width: 100%;            
+        max-width: 400px;       
+    }
+
+    .video-container {
+        height: 200px;         
+    }
+
+    .episode-info h3 {
+        font-size: 20px;       
+    }
+
+    .episode-info p {
+        font-size: 14px;        
+    }
+    .video-container iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+}
+}
+
 /* meet the host */
 
 
 .host-section {
-    width: 1200px; 
+    width: 100%;
+    max-width: 1600px; 
     margin: 0 auto; 
     text-align: center;
     padding-bottom: 80px;
@@ -643,10 +774,61 @@ body {
     opacity: 1;
     transform: scale(1.1);
 }
+@media (max-width: 576px) {
+    
+    .host-section {
+        width: 100%; 
+        padding: 0 20px 60px; 
+    }
+
+    .host-title {
+        font-size: 32px; 
+        margin-bottom: 30px;
+    }
+
+    
+    .host-card {
+        flex-direction: column; 
+        text-align: center;    
+        padding: 40px 20px;    
+        gap: 24px;             
+    }
+
+    .host-image-container {
+        margin: 0 auto;        
+    }
+
+    .host-img {
+        width: 150px;        
+        height: 150px;
+    }
+
+    .host-name {
+        font-size: 24px;       
+        margin-bottom: 12px;
+    }
+
+    .host-bio {
+        font-size: 14px;       
+        line-height: 22px;
+        margin-bottom: 20px;
+    }
+
+    
+    .social-links {
+        justify-content: center; 
+        gap: 12px;
+    }
+
+    .social-icon {
+        width: 36px;
+        height: 36px;
+    }
+}
 
 .main-footer {
     width: 100%;
-     height: 412px;  
+     min-height: 412px;  
     background-color: #1a0b2e; 
     background-image: url('./assets/footer-bg.png'); 
     background-size: cover;
@@ -659,6 +841,9 @@ body {
 }
 
 .footer-content {
+    width: 100%;
+    max-width: 1600px; 
+    margin: 0 auto;
     text-align: center;
     z-index: 2;
 }
@@ -674,7 +859,10 @@ body {
 }
 
 .footer-logo span {
-    color: #ff00ff;  
+    background: linear-gradient( 16.02deg,rgba(247, 233, 63, 1),rgba(251, 9, 180, 1),rgba(145, 0, 248, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     
     
 }
@@ -719,4 +907,36 @@ body {
     text-align: center;
     
 
+}
+@media (max-width: 576px) {
+    .main-footer {
+        min-height: auto; 
+        padding: 60px 0;  
+    }
+    .footer-content {
+        padding: 0 20px; 
+    }
+
+    .footer-logo {
+        font-size: 36px; 
+        margin-bottom: 20px;
+    }
+
+    .platform-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column; 
+        gap:16px;
+        align-items: center;
+        justify-items: center;
+    }
+    .platform-links a {
+        width: auto;
+        justify-content: flex-start; 
+        min-width: 30px;            
+    }
+
+    .copyright {
+        font-size: 14px;
+    }
 }
